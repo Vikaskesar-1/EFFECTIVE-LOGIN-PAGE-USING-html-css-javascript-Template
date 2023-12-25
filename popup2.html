@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto-Popup Contact Form</title>
+     <style>
+        /* Overlay styles */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        
+        /* Popup form styles */
+        .popup-form {
+            background: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        .popup-header {
+            background: #007BFF;
+            color: #ffffff;
+            padding: 15px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .popup-content {
+            padding: 20px;
+        }
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #080c11;
+        }
+    </style>
+</head>
+<body>
+     <!-- Your website content goes here -->
+
+
+    
+     <!-- Popup container -->
+     <div class="overlay" id="popup-container">
+        <div class="popup-form">
+            <div class="popup-header">
+                <span>Contact Us</span>
+                <span class="popup-close" onclick="closePopup()">&times;</span>
+            </div>
+            <div class="popup-content">
+                <!-- Contact form goes here -->
+                <form>
+                    <input type="text" placeholder="Name" required>
+                    <br><br>
+                    <input type="email" placeholder="Email" required>
+                    <br><br>
+                    <textarea placeholder="Message" rows="4" required></textarea>
+                    <br><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+     </div>
+
+     <script>
+        // Function to show the popup
+        function showPopup() {
+            var popup = document.getElementById("popup-container");
+            popup.style.display = "flex";
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            var popup = document.getElementById("popup-container");
+            popup.style.display = "none";
+        }
+
+        // Automatically show the popup after a delay (e.g., 5000 milliseconds for a 5-second delay)
+        setTimeout(showPopup, 5000); // This will show the popup after 5 seconds
+    </script>
+</body>
+</html>
